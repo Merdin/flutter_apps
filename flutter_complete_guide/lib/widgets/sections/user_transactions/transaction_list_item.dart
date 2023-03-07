@@ -5,10 +5,9 @@ import '../../../models/transaction.dart';
 
 class TransactionListItem extends StatelessWidget {
   final Transaction transaction;
-  final int rowIndex;
   final Function handleDelete;
 
-  TransactionListItem(this.transaction, this.rowIndex, this.handleDelete);
+  TransactionListItem(this.transaction, this.handleDelete);
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +46,12 @@ class TransactionListItem extends StatelessWidget {
                     color: Theme.of(context).colorScheme.error,
                   ),
                 ),
-                onPressed: () => handleDelete(rowIndex))
+                onPressed: handleDelete,
+              )
             : IconButton(
                 icon: Icon(Icons.delete),
                 color: Theme.of(context).colorScheme.error,
-                onPressed: () => handleDelete(rowIndex),
+                onPressed: handleDelete,
               ),
       ),
     );

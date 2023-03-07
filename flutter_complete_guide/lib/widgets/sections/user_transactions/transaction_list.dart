@@ -33,8 +33,7 @@ class TransactionsList extends StatelessWidget {
               itemBuilder: (context, index) {
                 return TransactionListItem(
                   transactions[index],
-                  index,
-                  handleDelete,
+                  () => handleDelete(index),
                 );
               },
               itemCount: transactions.length,
